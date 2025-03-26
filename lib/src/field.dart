@@ -35,6 +35,11 @@ class Field {
           ActivityFile().messages[messageTypeName] ??
           GarminActivityFile().messages[messageTypeName];
 
+      if (fileTypeFields == null) {
+        print('No message type fields found for $messageTypeName');
+        return;
+      }
+
       messageTypeFields = fileTypeFields![fieldDefinitionNumber];
       if (messageTypeFields != null) {
         fieldName = messageTypeFields!['field_name'];
